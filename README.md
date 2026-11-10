@@ -1,7 +1,7 @@
 # pyGameOS
 armbian + pyGame
 
-A lightweight build of Armbian with Pygame-CE built in for SDL2 (no X-win) display.
+A lightweight build of Armbian with Pygame-CE built in for SDL2 (no X-win bloat) display.
 
 # Features
 * 🐧 Debian 13 trixie based.
