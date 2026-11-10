@@ -1,0 +1,2 @@
+# pyGameOS
+armbian + pyGame
