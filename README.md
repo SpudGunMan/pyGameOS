@@ -6,14 +6,32 @@ A lightweight build of Armbian with Pygame-CE built in for SDL2 (no X-win bloat)
 # Features
 * 🐧 Debian 13 trixie based.
 * ❤️ Built with Armbian userpatches framework.
+* 👾 pyGame-ce pre-installed with SDL2 support
+* 🍓 Raspberry Pi Support
+* 🦾 Armbian [Supports](https://armbian.com/boards?support=community) over 400 SBC from 90 vendors!
+* 
 
-# Requirements for building ARMBIAN image
-* 8GB RAM
-* 10GB Disk
-* 3-5GB Download
-* Hour or Two
 
-# Using this repo
+# Using the pyGameOS
+* Flash the latest image from the build tool, using balenaEtcher or a similar tool.
+* login with default credentials. You will be prompted to change this upon first login.
+* `sudo armbian-config`
+* Test display and pygame `python -m pygame.examples.aliens`
+* install your pyGame project
+
+Setting Time
+* `sudo systemctl enable --now systemd-timesyncd.service`
+* `sudo hostnamectl set-hostname <new-hostname>`
+* `sudo timedatectl set-timezone Region/City`
+* `sudo timedatectl set-ntp true`
+
+
+# Using this repo for building pyGameOS image custom for your hardware
+
+## Requirements of build machine
+* ~8GB RAM, 10GB Disk, 3-5GB Download
+* Hour or so of time
+
 To get a image to flash to SDcard follow these directions. I use a Ubuntu 26.04 Virtual Image to follow the steps below.
 
 Checkout armbian/build and enter the dir
@@ -38,19 +56,6 @@ Compile!
 
 The output image will go into .. build/output/images
 
-# Using the pyGameOS
-* Flash the latest image from the build tool, using balenaEtcher or a similar tool.
-* login with default credentials. You will be prompted to change this upon first login.
-* `sudo armbian-config`
-* Test display and pygame `python -m pygame.examples.aliens`
-* install your pyGame project
-
-Setting Time
-* `sudo systemctl enable --now systemd-timesyncd.service`
-* `sudo hostnamectl set-hostname <new-hostname>`
-* `sudo timedatectl set-timezone Region/City`
-* `sudo timedatectl set-ntp true`
-
-# Customizing pyGameOS for deployment
+## Customizing pyGameOS for deployment
 * See [armbian documentation](https://docs.armbian.com/build-framework/)
 * see [customize-image.sh](customize-image.sh)
