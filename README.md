@@ -6,20 +6,19 @@ A lightweight build of Armbian with Pygame-CE built in for SDL2 (no X-win bloat)
 # Features
 * 🐧 Debian 13 trixie based.
 * ❤️ Built with Armbian userpatches framework.
-* 👾 pyGame-ce pre-installed with SDL2 support
+* 👾 Pygame-CE pre-installed with SDL2 support
 * 🍓 Raspberry Pi Support
 * 🦾 Armbian [Supports](https://armbian.com/boards?support=community) over 400 SBC from 90 vendors!
-* 
+* 💻 SDL (Simple DirectMedia Layer) acts as a universal abstraction layer for graphics, audio, and input. Because Pygame relies on SDL, code written for a lightweight Linux device (like a Raspberry Pi Zero or an embedded ARM board) can run natively without additional dependencies like X11
 
+# Using pyGameOS
+* Flash the latest image using balenaEtcher or a similar tool
+* Log in with default credentials. You will be prompted to change them on first login
+* Run `sudo armbian-config`
+* Test the display and Pygame with `python -m pygame.examples.aliens`
+* Install your Pygame project
 
-# Using the pyGameOS
-* Flash the latest image from the build tool, using balenaEtcher or a similar tool.
-* login with default credentials. You will be prompted to change this upon first login.
-* `sudo armbian-config`
-* Test display and pygame `python -m pygame.examples.aliens`
-* install your pyGame project
-
-Setting Time
+## Setting Time and Hostname
 * `sudo systemctl enable --now systemd-timesyncd.service`
 * `sudo hostnamectl set-hostname <new-hostname>`
 * `sudo timedatectl set-timezone Region/City`
@@ -32,29 +31,34 @@ Setting Time
 * ~8GB RAM, 10GB Disk, 3-5GB Download
 * Hour or so of time
 
-To get a image to flash to SDcard follow these directions. I use a Ubuntu 26.04 Virtual Image to follow the steps below.
+To create an image to flash to an SD card, follow these directions. This example uses Ubuntu 24.04 LTS (a virtual machine works fine).
 
-Checkout armbian/build and enter the dir
+Clone the Armbian build repository and enter the directory:
 
 ```
 git clone https://github.com/armbian/build.git
 cd build
 ```
 
-Checkout this repo as "userpatches"
+Clone this repository as "userpatches":
 
-`git clone https://github.com/SpudGunMan/pyGameOs userpatches`
+```bash
+git clone https://github.com/SpudGunMan/pyGameOS userpatches
+```
 
-Compile!
+Run the build script:
 
-`./userpatches/run-build.sh build`
+```bash
+./userpatches/run-build.sh build
+```
 
-* Typically you dont need to change any kernel options (skip)
-* rpi4b is the generic board for all most all raspberry
-* Console interface (server)
-* Minimal Image with Console
+When prompted, choose these options:
+* Skip kernel configuration (not needed for most use cases)
+* `rpi4b` - the standard board option for most Raspberry Pi variants
+* `Console interface (server)` - minimal server install
+* `Minimal Image with Console` - lightweight footprint
 
-The output image will go into .. build/output/images
+The compiled image will be located in `build/output/images/`
 
 ## Customizing pyGameOS for deployment
 * See [armbian documentation](https://docs.armbian.com/build-framework/)
