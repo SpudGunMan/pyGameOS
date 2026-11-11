@@ -41,8 +41,15 @@ The output image will go into .. build/output/images
 # Using the pyGameOS
 * Flash the latest image from the build tool, using balenaEtcher or a similar tool.
 * login with default credentials. You will be prompted to change this upon first login.
+* `sudo armbian-config`
 * Test display and pygame `python -m pygame.examples.aliens`
 * install your pyGame project
+
+Setting Time
+* `sudo systemctl enable --now systemd-timesyncd.service`
+* `sudo hostnamectl set-hostname <new-hostname>`
+* `sudo timedatectl set-timezone Region/City`
+* `sudo timedatectl set-ntp true`
 
 # Customizing pyGameOS for deployment
 * See [armbian documentation](https://docs.armbian.com/build-framework/)
