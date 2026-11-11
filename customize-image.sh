@@ -45,7 +45,7 @@ esac
 Main() {
 	apt-get update
 
-	# Spud Added packages for dev-kit in runtime
+	# Added packages for dev-kit in runtime
 	InstallAptPkg "git"
 	InstallAptPkg "python3"
 	InstallAptPkg "python3-venv"
@@ -88,7 +88,7 @@ Main() {
     InstallAptPkg "libportmidi-dev"
     
 	# Optional: KMS/DRM diagnostic tool
-    InstallAptPkg "kmscube"
+    #InstallAptPkg "kmscube"
 
     # PyGame-CE
 	InstallPipPkg "pygame-ce"
