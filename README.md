@@ -1,5 +1,5 @@
 # pyGameOS
-armbian + pyGame
+armbian + pyGame = pyGameOS
 
 A lightweight build of Armbian with Pygame-CE built in for SDL2 (no X-win bloat) display.
 
