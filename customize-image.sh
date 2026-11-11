@@ -78,9 +78,11 @@ Main() {
 	InstallAptPkg "libsdl2-gfx-dev"
 	
 	# Font and image support
+	InstallAptPkg "libfontconfig"
 	InstallAptPkg "libfreetype6-dev"
     InstallAptPkg "libjpeg-dev"
-    
+    InstallAptPkg "libpng-dev"
+
 	# Input handling and audio
     InstallAptPkg "libxkbcommon-dev"
     InstallAptPkg "libportmidi-dev"
